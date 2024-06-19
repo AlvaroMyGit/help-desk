@@ -8,5 +8,9 @@ public interface ClientModel {
     void setFirstName();
     String getLastName();
     void setLastName();
+    String getEmail();
+    void setEmail(String email);
+    String getPhoneNumber();
+    void setPhoneNumber(String phoneNumber);
 
 }

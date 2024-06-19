@@ -1,23 +1,23 @@
-CREATE TABLE Client (
-    client_id INT PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    contact_info VARCHAR(100)
+CREATE TABLE client (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone_number VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Equipment (
-    equipment_id INT PRIMARY KEY AUTO_INCREMENT,
-    client_id INT,
-    description VARCHAR(255),
-    date_received DATE,
-    FOREIGN KEY (client_id) REFERENCES Client(client_id)
+CREATE TABLE equipment (
+    id SERIAL PRIMARY KEY,
+    client_id INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    date_received DATE NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Repair (
-    repair_id INT PRIMARY KEY AUTO_INCREMENT,
-    equipment_id INT,
-    description VARCHAR(255),
-    status VARCHAR(50),
+CREATE TABLE repair (
+    id SERIAL PRIMARY KEY,
+    equipment_id INTEGER NOT NULL,
+    description TEXT NOT NULL,
     date_completed DATE,
-    FOREIGN KEY (equipment_id) REFERENCES Equipment(equipment_id)
+    FOREIGN KEY (equipment_id) REFERENCES equipment(id) ON DELETE CASCADE
 );
