@@ -1,12 +1,14 @@
-package btech.model;
+package btech.model.interfaces;
+
+import btech.model.concrete.Equipment;
 
 import java.time.LocalDate;
 
 public interface RepairModel {
     Long getId();
     void setId(Long id);
-    Long getEquipmentId();
-    void setEquipmentId(Long equipmentId);
+    Equipment getEquipment();
+    void setEquipment(Equipment equipment);
     String getDescription();
     void setDescription(String description);
     LocalDate getDateCompleted();

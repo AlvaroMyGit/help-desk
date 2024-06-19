@@ -1,13 +1,13 @@
-package btech.model;
+package btech.model.interfaces;
 
 public interface ClientModel {
 
     Long getId();
     void setId(Long id);
     String getFirstName();
-    void setFirstName();
+    void setFirstName(String firstName);
     String getLastName();
-    void setLastName();
+    void setLastName(String lastName);
     String getEmail();
     void setEmail(String email);
     String getPhoneNumber();

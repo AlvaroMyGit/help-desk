@@ -1,5 +1,7 @@
-package btech.model;
+package btech.model.interfaces;
 
+
+import btech.model.concrete.Client;
 
 import java.time.LocalDate;
 
@@ -7,8 +9,8 @@ public interface EquipmentModel {
 
     Long getId();
     void setId(Long id);
-    Long getClientId();
-    void setClientId(Long clientId);
+    Client getClient();
+    void setClient(Client client);
     String getDescription();
     void setDescription(String description);
     LocalDate getDateReceived();
