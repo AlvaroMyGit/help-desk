@@ -49,5 +49,7 @@ public class HelpDeskService {
         return clientRepository.findById(id);
     }
 
+
+
     // Other methods to get and update entities
 }

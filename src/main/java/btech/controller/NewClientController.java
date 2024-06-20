@@ -8,32 +8,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/clients")
-public class ClientController {
+public class NewClientController {
 
     @Autowired
     private HelpDeskService helpDeskService;
 
-    @GetMapping
-    public String listClients(Model model) {
-        model.addAttribute("clients", helpDeskService.getAllClients());
-        return "clients";
-    }
-
-    @GetMapping("/new")
-    public String showAddClientForm(Model model) {
+    @GetMapping("/new-client")
+    public String showNewClientForm(Model model) {
         model.addAttribute("client", new Client());
         return "new-client";
     }
 
-    @PostMapping
-    public String addClient(@ModelAttribute Client client) {
+    @PostMapping("/new-client")
+    public String processNewClient(@ModelAttribute Client client, Model model) {
         helpDeskService.addClient(client);
-        return "redirect:/clients";
+        model.addAttribute("client", client);
+        return "redirect:/add-repair?clientId=" + client.getId();
     }
-
-    // Other methods for update and delete
 }
