@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HelpDeskService {
@@ -42,6 +43,10 @@ public class HelpDeskService {
 
     public List<Client> getAllClients() {
         return clientRepository.findAll();
+    }
+
+    public Optional<Client> getClientById(Long id) {
+        return clientRepository.findById(id);
     }
 
     // Other methods to get and update entities
