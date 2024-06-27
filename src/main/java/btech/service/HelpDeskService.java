@@ -1,12 +1,12 @@
 package btech.service;
 
-
 import btech.model.concrete.Client;
 import btech.model.concrete.Equipment;
 import btech.model.concrete.Repair;
 import btech.repository.ClientRepository;
 import btech.repository.EquipmentRepository;
 import btech.repository.RepairRepository;
+import btech.util.RepairStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,12 +19,11 @@ public class HelpDeskService {
 
     @Autowired
     private ClientRepository clientRepository;
-
     @Autowired
     private EquipmentRepository equipmentRepository;
-
     @Autowired
     private RepairRepository repairRepository;
+
 
     @Transactional
     public Client addClient(Client client) {
@@ -49,7 +48,13 @@ public class HelpDeskService {
         return clientRepository.findById(id);
     }
 
+    public List<Repair> getOpenRepairs() {
+        return repairRepository.findByStatusNot(RepairStatus.COMPLETED);
+    }
 
+    public Optional<Client> findClientByEmail(String email) {
+        return clientRepository.findByEmail(email);
+    }
 
-    // Other methods to get and update entities
+    // Other methods as needed
 }

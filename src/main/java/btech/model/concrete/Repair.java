@@ -1,6 +1,7 @@
 package btech.model.concrete;
 
 import btech.model.interfaces.RepairModel;
+import btech.util.RepairStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -34,6 +35,9 @@ public class Repair implements RepairModel {
     public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
     }
+
+    @Enumerated(EnumType.STRING)
+    private RepairStatus status;
 
     @Override
     public String getDescription() {

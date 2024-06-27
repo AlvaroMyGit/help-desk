@@ -1,10 +1,10 @@
-<!-- src/main/resources/templates/choose-client.html -->
+<!-- src/main/resources/templates/find-client.html -->
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Choose Client</title>
+    <title>Find Client</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -13,17 +13,15 @@
 <body>
 <div th:insert="~{fragments/navbar :: navbar}"></div>
 <div class="container mt-4">
-    <h2>Choose Client</h2>
-    <div class="d-flex justify-content-around mt-4">
-        <form th:action="@{/choose-client}" method="post">
-            <input type="hidden" name="clientType" value="existing">
-            <a href="/clients" class="btn btn-primary btn-lg">Existing Client</a>
-        </form>
-        <form th:action="@{/choose-client}" method="post">
-            <input type="hidden" name="clientType" value="new">
-            <a href="/new-client" class="btn btn-secondary btn-lg">New Client</a>
-        </form>
-    </div>
+    <h2>Find Client</h2>
+    <form th:action="@{/find-client}" method="post">
+        <div class="form-group">
+            <label for="email">Enter Client Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Find Client</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+    </form>
 </div>
 
 <!-- Bootstrap JS and dependencies -->
