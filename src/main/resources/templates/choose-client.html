@@ -11,22 +11,19 @@
           crossorigin="anonymous">
 </head>
 <body>
+<div th:insert="~{fragments/navbar :: navbar}"></div>
 <div class="container mt-4">
     <h2>Choose Client</h2>
-    <form th:action="@{/choose-client}" method="post">
-        <div class="form-group">
-            <label for="existingClient">Is the client already registered?</label><br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="existingClient" name="clientType" value="existing">
-                <label class="form-check-label" for="existingClient">Existing Client</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="newClient" name="clientType" value="new">
-                <label class="form-check-label" for="newClient">New Client</label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Next</button>
-    </form>
+    <div class="d-flex justify-content-around mt-4">
+        <form th:action="@{/choose-client}" method="post">
+            <input type="hidden" name="clientType" value="existing">
+            <a href="/clients" class="btn btn-primary btn-lg">Existing Client</a>
+        </form>
+        <form th:action="@{/choose-client}" method="post">
+            <input type="hidden" name="clientType" value="new">
+            <a href="/new-client" class="btn btn-secondary btn-lg">New Client</a>
+        </form>
+    </div>
 </div>
 
 <!-- Bootstrap JS and dependencies -->

@@ -1,29 +1,27 @@
-<!-- src/main/resources/templates/add-repair.html -->
-
+<!-- src/main/resources/templates/fragments/navbar.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Repair Job</title>
+    <title>Navbar Fragment</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
 </head>
 <body>
-<div th:insert="~{fragments/navbar :: navbar}"></div>
-<div class="container mt-4">
-    <h2>Add Repair Job</h2>
-    <form th:action="@{/add-repair}" method="post">
-        <input type="hidden" th:value="${client.id}" name="clientId">
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <input type="text" class="form-control" id="description" name="description">
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">BTech HelpDesk</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+            </ul>
         </div>
-        <button type="submit" class="btn btn-primary">Add Repair Job</button>
-    </form>
+    </nav>
 </div>
-
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

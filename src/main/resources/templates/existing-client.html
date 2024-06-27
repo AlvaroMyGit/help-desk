@@ -11,6 +11,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<div th:insert="~{fragments/navbar :: navbar}"></div>
 <div class="container mt-4">
     <h2>Find Existing Client</h2>
     <form th:action="@{/existing-client}" method="post">
