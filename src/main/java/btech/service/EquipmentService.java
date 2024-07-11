@@ -29,5 +29,7 @@ public class EquipmentService {
         equipmentRepository.deleteById(id);
     }
 
+
+
     // Additional methods for EquipmentService can be added here as needed
 }

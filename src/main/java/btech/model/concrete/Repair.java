@@ -4,6 +4,7 @@ import btech.model.interfaces.RepairModel;
 import btech.util.RepairStatus;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -16,6 +17,9 @@ public class Repair implements RepairModel {
     @JoinColumn(name = "equipment_id", nullable = false)
     private Equipment equipment;
     private String description;
+
+    private BigDecimal price;
+
     private LocalDate dateCompleted;
 
     @Override
@@ -50,6 +54,16 @@ public class Repair implements RepairModel {
     }
 
     @Override
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    @Override
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    @Override
     public LocalDate getDateCompleted() {
         return dateCompleted;
     }
@@ -57,5 +71,13 @@ public class Repair implements RepairModel {
     @Override
     public void setDateCompleted(LocalDate dateCompleted) {
         this.dateCompleted = dateCompleted;
+    }
+    @Override
+    public RepairStatus getStatus() {
+        return status;
+    }
+    @Override
+    public void setStatus(RepairStatus status) {
+        this.status = status;
     }
 }

@@ -19,19 +19,19 @@ public class ClientService {
     public Client addClient(Client client) {
         return clientRepository.save(client);
     }
-
+    @Transactional
     public Optional<Client> getClientById(Long id) {
         return clientRepository.findById(id);
     }
-
+    @Transactional
     public List<Client> getAllClients() {
         return clientRepository.findAll();
     }
-
+    @Transactional
     public void deleteClientById(Long id) {
         clientRepository.deleteById(id);
     }
-
+    @Transactional
     public Optional<Client> findClientByEmail(String email) {
         return clientRepository.findByEmail(email);
     }
